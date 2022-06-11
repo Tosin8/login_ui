@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart'; 
 
 void main() {
   runApp(const MaterialApp(
@@ -28,12 +29,13 @@ class _MyLoginWidgetState extends State<MyLoginWidget>
 
 
   @override
-  void initState() [
-    final _controller = AnimationController(
+  void initState() {
+     _controller = AnimationController(
       vsync: this, 
       duration: const Duration(milliseconds: 300));
 
-      final _opacity = Tween<double>(begin: 0, end: 1).animate(
+    _opacity = Tween<double>(begin: 0,
+     end: 1).animate(
         CurvedAnimation(
           parent: _controller, 
           curve: Curves.ease,
@@ -51,6 +53,8 @@ class _MyLoginWidgetState extends State<MyLoginWidget>
          _controller.forward();
          super.initState(); 
          }
+
+          );
   @override
   void dispose() {
     _controller.dispose();
@@ -121,10 +125,12 @@ class _MyLoginWidgetState extends State<MyLoginWidget>
                         Fluttertoast.showToast(
                           msg: 'Login button pressed'
                         ); 
-                      }), 
+                      ), 
                       SizedBox(width: size.width/25), 
                       Container(width: size.width / 2.6, alignment: Alignment.center,
-                      child: RichText(text: TextSpan(text: 'Forgotten Password?', style: const TextStyle(color:Colors.blueAccent), recognizer: TapGestureRecognizer()
+                      child: RichText(text: TextSpan(text: 'Forgotten Password?', style: const TextStyle(color:Colors.blueAccent), 
+                      recognizer:
+                       TapGestureRecognizer()
                       ..onTap = (){
                         Fluttertoast.showToast(
                           msg:'Forgotten Password button pressed', 
@@ -135,7 +141,9 @@ class _MyLoginWidgetState extends State<MyLoginWidget>
                       ), 
                      const  SizedBox(), 
                      RichText(text: TextSpan(text: 'Create a new Account', 
-                     style: TextStyle(color: Colors.blueAccent, fontSize: 15), recognizer: TapGestureRecognizer()
+                     style: const TextStyle(color: Colors.blueAccent, fontSize: 15),
+                      recognizer:
+                      TapGestureRecognizer()
                      ..onTap = (){
                        Fluttertoast.showToast(
                          msg: 'Create a new Account button pressed', 
@@ -145,12 +153,12 @@ class _MyLoginWidgetState extends State<MyLoginWidget>
                     ], 
                   ),
                   )
-                
+            )             
               )
             )
           )
         )
-           )  ),);
+           );
   }
 
 Widget component1(
@@ -181,6 +189,7 @@ Widget component1(
       )
     ); 
   }
+  
 
 Widget component2(String string, double width, VoidCallback voidCallback) {
   Size size = MediaQuery.of(context).size;
@@ -205,9 +214,12 @@ Widget component2(String string, double width, VoidCallback voidCallback) {
     ),
   ); 
 }
+  }
 
+// ignore: non_constant_identifier_names
 class MyBehavior extends ScrollBehavior {
   @override
+  // ignore: unused_element
   Widget buildViewportChrome(
       BuildContext context,
        Widget child,
@@ -216,3 +228,4 @@ class MyBehavior extends ScrollBehavior {
     return child;
   }
 }
+  
