@@ -1,25 +1,19 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MaterialApp(home: MyLoginWidget()));
+}
 
- 
+class MyLoginWidget extends StatefulWidget {
+  const MyLoginWidget({Key? key}) : super(key: key);
 
- void main(){
-  runApp(
-    MaterialApp(
-      home: MyLoginWidget()); 
-    ); 
- }
+  @override
+  State<MyLoginWidget> createState() => _MyLoginWidgetState();
+}
 
- class MyLoginWiget extends StatefulWidget {
-   const MyLoginWiget({Key? key}) : super(key: key);
- 
-   @override
-   State<MyLoginWiget> createState() => _MyLoginWigetState();
- }
- 
- class _MyLoginWigetState extends State<MyLoginWiget> {
-   @override
-   Widget build(BuildContext context) {
-     return Container();
-   }
- }
+class _MyLoginWidgetState extends State<MyLoginWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
