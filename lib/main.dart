@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MaterialApp(home: MyLoginWidget()));
+  runApp(const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Login UI with fadeout animation',
+      home: MyLoginWidget()));
 }
 
 class MyLoginWidget extends StatefulWidget {
